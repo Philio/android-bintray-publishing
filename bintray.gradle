@@ -42,8 +42,8 @@ bintray {
             }
             mavenCentralSync {
                 sync = hasProperty('mavenCentralSync') ? mavenCentralSync : false
-                user = ossUser
-                password = ossPassword
+                user = hasProperty('ossUser') ? ossUser : null
+                password = hasProperty('ossPassword') ? ossPassword : null
                 close = hasProperty(ossClose) ? ossClose : 1
             }
         }
