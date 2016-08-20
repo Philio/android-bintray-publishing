@@ -26,6 +26,9 @@ bintray {
     user = bintrayUser
     key = bintrayApikey
     configurations = ['archives']
+    dryRun = hasProperty('bintrayDryRun') ? bintrayDryRun : false
+    publish = hasProperty('bintrayPublish') ? bintrayPublish : false
+    override = hasProperty('bintrayOverride') ? bintrayOverride : false
     pkg {
         repo = bintrayRepo
         name = bintrayName
