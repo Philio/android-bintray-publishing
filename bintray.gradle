@@ -34,10 +34,17 @@ bintray {
         name = bintrayName
         version {
             name = libraryVersion
-            released = new Date()
+            desc = hasProperty('versionDesc') ? versionDesc : null
+            released = hasProperty('versionDate') ? versionDate : new Date()
             gpg {
-                sign = bintrayGpgSign
-                passphrase = bintrayGpgPassphrase
+                sign = hasProperty('bintrayGpgSign') ? bintrayGpgSign : false
+                passphrase = hasProperty('bintrayGpgPassphrase') ? bintrayGpgPassphrase : null
+            }
+            mavenCentralSync {
+                sync = hasProperty('mavenCentralSync') ? mavenCentralSync : false
+                user = ossUser
+                password = ossPassword
+                close = hasProperty(ossClose) ? ossClose : 1
             }
         }
     }
